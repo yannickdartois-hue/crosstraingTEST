@@ -2,6 +2,14 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Cross TEST">
+<meta name="theme-color" content="#6b7280">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>🏋️ Cross Training EPS</title>
 <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
@@ -325,12 +333,20 @@ input,textarea,select,button{font-family:inherit}
 .text-center{text-align:center}.text-sm{font-size:.8rem}.text-muted{color:var(--text2)}
 .text-accent{color:var(--accent)}.text-green{color:var(--green)}
 </style>
+
+<style id="appicon-css">.appicon{width:40px;height:40px;border-radius:9px;vertical-align:middle;margin:0 10px 0 0;box-shadow:0 1px 3px rgba(0,0,0,.25);flex:none;display:inline-block;object-fit:cover}
+.appicon.big{width:72px;height:72px;border-radius:16px;margin:0 auto 10px;display:block}
+.appicon.fill{width:100%;height:100%;margin:0;border-radius:inherit;box-shadow:none;display:block}
+.appicon.logoimg{width:46px;height:46px;margin:0;border-radius:12px}
+.test-banner{background:#facc15;color:#111;font:700 14px/1.3 system-ui,sans-serif;text-align:center;padding:6px 12px;position:fixed;left:0;right:0;bottom:0;z-index:2147483647;pointer-events:none;opacity:.95;box-shadow:0 -2px 8px rgba(0,0,0,.3)}
+@media print{.appicon,.test-banner{display:none!important}}</style>
 </head>
 <body>
+<div class="test-banner" role="note">⚠ Version de test — ne pas utiliser en cours</div>
 
 <!-- ══ SESSION CODE OVERLAY (shown first) ══ -->
 <div class="session-overlay" id="sessionOverlay">
-  <div class="session-logo">🏋️</div>
+  <div class="session-logo"><img class="appicon big" src="icon-192.png" alt="" width="40" height="40"></div>
   <div class="session-title">Cross Training EPS</div>
   <div class="session-sub">Entre le code de session donné par ton professeur<br>pour accéder à l'application</div>
   <input class="session-code-input" id="sessionCodeInput" maxlength="6" placeholder="CODE"
@@ -5871,6 +5887,7 @@ function expelStudent(code, safeId, studentName) {
 
 window.addEventListener('DOMContentLoaded', init);
 </script>
+<script>if('serviceWorker' in navigator&&location.protocol==='https:'){addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}</script>
 </body>
 </html>
 
